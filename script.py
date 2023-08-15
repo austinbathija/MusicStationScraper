@@ -10,7 +10,9 @@ driver.get("https://www.siriusxm.com/channels/bpm")
 
 previous_song = None
 
-while True:
+clock = 0
+# Run for 10 minutes
+while clock != 600:
     # Find the elements matching the XPath for song and artist
     song_elements = driver.find_elements(By.XPATH, "//div[@class='card-spotlight--now-playing--song']/span")
     artist_elements = driver.find_elements(By.XPATH, "//div[@class='card-spotlight--now-playing--artist']/span")
@@ -25,5 +27,6 @@ while True:
             previous_song = current_song
         
     time.sleep(10)  # Wait for 10 seconds before checking again
+    clock += 10
 
 driver.quit()
