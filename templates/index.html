@@ -6,8 +6,21 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function refreshTable() {
+            // Display the refresh indicator
+            $('#refresh-indicator').show();
+
             $.get('/refresh', function(data) {
-                $('#song-list tbody').html(data);
+                // Split the data into currently playing and song history
+                var splitData = data.split("<!-- SPLIT -->");
+                var currentlyPlaying = splitData[0];
+                var songHistory = splitData[1];
+
+                // Update the currently playing and song history sections
+                $('#currently-playing').html(currentlyPlaying);
+                $('#song-history tbody').html(songHistory);
+
+                // Hide the refresh indicator after the data is updated
+                $('#refresh-indicator').hide();
             });
         }
 
@@ -18,7 +31,14 @@
     </script>
 </head>
 <body>
-    <div id="song-list">
+    <div id="refresh-indicator" style="display: none;">Refreshing...</div>
+
+    <div id="currently-playing">
+        <!-- The currently playing song will be populated dynamically -->
+    </div>
+
+    <div id="song-history">
+        <h2>Song History</h2>
         <table>
             <thead>
                 <tr>
@@ -28,7 +48,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- The table body will be populated dynamically -->
+                <!-- The song history will be populated dynamically -->
             </tbody>
         </table>
     </div>

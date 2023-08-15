@@ -35,3 +35,13 @@ th {
 tr:hover {
     background-color: #f5f5f5;
 }
+
+.currently-playing {
+    background-image: linear-gradient(to bottom right, #001f3f, #004080);
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: white; /* Add text color to make it readable on the dark background */
+}

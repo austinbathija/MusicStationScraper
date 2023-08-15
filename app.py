@@ -21,10 +21,17 @@ def index():
 @app.route('/refresh')
 def refresh_song_data():
     songs = get_song_history()
-    song_rows = ""
-    for song in songs:
-        song_rows += f"<tr><td>{song[1]}</td><td>{song[2]}</td><td>{song[3]}</td></tr>"
-    return song_rows
+    
+    if songs:
+        currently_playing = f"<div class='currently-playing'>Currently playing:<br>{songs[-1][1]} by {songs[-1][2]}</div>"
+        song_history_rows = ""
+        for song in reversed(songs[:-1]):
+            song_history_rows += f"<tr><td>{song[1]}</td><td>{song[2]}</td><td>{song[3]}</td></tr>"
+        response_data = f"{currently_playing}<!-- SPLIT -->{song_history_rows}"
+    else:
+        response_data = "No song history available."
+
+    return response_data
 
 if __name__ == '__main__':
     app.run(debug=True)
