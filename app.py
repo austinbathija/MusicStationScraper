@@ -17,8 +17,14 @@ def index():
     songs = get_song_history()
     return render_template('index.html', songs=songs)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# Route to retrieve refreshed song data
+@app.route('/refresh')
+def refresh_song_data():
+    songs = get_song_history()
+    song_rows = ""
+    for song in songs:
+        song_rows += f"<tr><td>{song[1]}</td><td>{song[2]}</td><td>{song[3]}</td></tr>"
+    return song_rows
 
 if __name__ == '__main__':
     app.run(debug=True)
