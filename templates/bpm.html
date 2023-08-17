@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BPM Station</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function refreshBpmTable() {
+            $.get('/refresh/bpm', function(data) {
+                $('#song-history tbody').html(data);
+            });
+        }
+
+        $(document).ready(function() {
+            refreshBpmTable();
+            setInterval(refreshBpmTable, 5000); // Refresh every 5 seconds
+        });
+    </script>
+</head>
+<body>
+    <div id="song-history">
+        <h2>BPM Song History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Artist</th>
+                    <th>Times Played</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- The song history will be populated dynamically -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

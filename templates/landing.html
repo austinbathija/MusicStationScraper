@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='landingStyles.css') }}">
+    <title>Song Boxes</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="bpm-box">
+            <img src="{{ url_for('static', filename='bpm.jpg') }}" alt="BPM Image">
+            <h2>BPM</h2>
+            <p>BPM plays the biggest artists in Dance/Electronic music</p>
+            <a href="bpm" class="box-link">Explore</a>
+        </div>
+        <div class="box" id="chill-box">
+            <img src="{{ url_for('static', filename='chill.jpg') }}" alt="Chill Image">
+            <h2>Chill</h2>
+            <p>Chill plays downtempo electronic and deep house</p>
+            <a href="chill" class="box-link">Explore</a>
+        </div>
+        <div class="box" id="state-of-armin-box">
+            <img src="{{ url_for('static', filename='armin.jpg') }}" alt="Armin Image">
+            <h2>A State of Armin</h2>
+            <p>Armin van Buuren's mix of Trance and Downtempo Dance Music.</p>
+            <a href="armin" class="box-link">Explore</a>
+        </div>
+    </div>
+</body>
+</html>

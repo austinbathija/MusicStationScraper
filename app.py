@@ -3,9 +3,8 @@ import sqlite3
 
 app = Flask(__name__)
 
-# Function to retrieve data from the database
 def get_song_history():
-    conn = sqlite3.connect('song_data.db')
+    conn = sqlite3.connect('MultiStation_SongData.db')
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM song_history")
     songs = cursor.fetchall()
@@ -14,24 +13,69 @@ def get_song_history():
 
 @app.route('/')
 def index():
-    songs = get_song_history()
-    return render_template('index.html', songs=songs)
+    return render_template('landing.html')
 
-# Route to retrieve refreshed song data
-@app.route('/refresh')
-def refresh_song_data():
+@app.route('/landingpage')
+def landing_page():
+    return render_template('landing.html')
+
+@app.route('/bpm')
+def bpm():
+    return render_template('bpm.html')
+
+@app.route('/chill')
+def chill():
+    return render_template('chill.html')
+
+@app.route('/armin')
+def armin():
+    return render_template('armin.html')
+
+@app.route('/refresh/bpm')
+def refresh_bpm_song_data():
     songs = get_song_history()
-    
-    if songs:
-        currently_playing = f"<div class='currently-playing'>Currently playing:<br>{songs[-1][1]} by {songs[-1][2]}</div>"
-        song_history_rows = ""
-        for song in reversed(songs[:-1]):
-            song_history_rows += f"<tr><td>{song[1]}</td><td>{song[2]}</td><td>{song[3]}</td></tr>"
-        response_data = f"{currently_playing}<!-- SPLIT -->{song_history_rows}"
+
+    bpm_songs = [song for song in songs if song[1] == "BPM"]
+
+    song_history_rows = ""
+    if bpm_songs:
+        for song in reversed(bpm_songs):
+            song_history_rows += f"<tr><td>{song[2]}</td><td>{song[3]}</td><td>{song[4]}</td><td>{song[5]}</td></tr>"
     else:
-        response_data = "No song history available."
+        song_history_rows = "<tr><td colspan='3'>No song history available for BPM station.</td></tr>"
 
-    return response_data
+    return song_history_rows
+
+
+@app.route('/refresh/chill')
+def refresh_chill_song_data():
+    songs = get_song_history()
+
+    chill_songs = [song for song in songs if song[1] == "Chill"]
+
+    song_history_rows = ""
+    if chill_songs:
+        for song in reversed(chill_songs):
+            song_history_rows += f"<tr><td>{song[2]}</td><td>{song[3]}</td><td>{song[4]}</td><td>{song[5]}</td></tr>"
+    else:
+        song_history_rows = "<tr><td colspan='3'>No song history available for Chill station.</td></tr>"
+
+    return song_history_rows
+
+@app.route('/refresh/armin')
+def refresh_armin_song_data():
+    songs = get_song_history()
+
+    armin_songs = [song for song in songs if song[1] == "A State of Armin"]
+
+    song_history_rows = ""
+    if armin_songs:
+        for song in reversed(armin_songs):
+            song_history_rows += f"<tr><td>{song[2]}</td><td>{song[3]}</td><td>{song[4]}</td><td>{song[5]}</td></tr>"
+    else:
+        song_history_rows = "<tr><td colspan='3'>No song history available for Armin station.</td></tr>"
+
+    return song_history_rows
 
 if __name__ == '__main__':
     app.run(debug=True)
