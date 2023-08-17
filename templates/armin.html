@@ -7,10 +7,11 @@
     <script>
         function refreshArminTable() {
             $.get('/refresh/armin', function(data) {
-                $('#song-history tbody').html(data);
+                var splitData = data.split('<!--SPLIT-->'); // Split data into now playing and history
+                $('#now-playing').html(splitData[0]);
+                $('#song-history tbody').html(splitData[1]);
             });
         }
-
         $(document).ready(function() {
             refreshArminTable();
             setInterval(refreshArminTable, 5000); // Refresh every 5 seconds
@@ -18,8 +19,16 @@
     </script>
 </head>
 <body>
+    <div class="back-button">
+        <a href="{{ url_for('landing_page') }}" class="back-link">Back</a>
+    </div>
     <div id="song-history">
         <h2>A State of Armin Song History</h2>
+        <div class="section-heading">Now Playing</div>
+        <div id="now-playing">
+            <!-- Now Playing section will be populated dynamically -->
+        </div>
+        <div class="section-heading">Song History</div>
         <table>
             <thead>
                 <tr>
@@ -30,7 +39,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- The song history will be populated dynamically -->
+                <!-- Song history (excluding now playing) will be populated dynamically -->
             </tbody>
         </table>
     </div>

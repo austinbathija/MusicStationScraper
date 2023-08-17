@@ -1,62 +1,85 @@
+/* Apply general styles to the body and headings */
 body {
+    font-family: Arial, sans-serif;
+    background-color: #36393F; /* Discord gray */
     margin: 0;
     padding: 0;
-    background-color: #36393f; /* Discord gray background */
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Discord font stack */
 }
 
+/* Style the giant title */
+.giant-title {
+    text-align: center;
+    font-size: 36px;
+    margin: 0; /* Reset margin to remove spacing */
+    padding: 10px 0;
+    color: #fff;
+}
 
+/* Center the boxes */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #36393f; /* Discord gray background */
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
 }
 
+/* Center the boxes */
+.container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 20px auto 0; /* Add 20px to margin-top */
+    padding: 50px;
+}
+
+/* Style the boxes */
 .box {
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    margin: 10px;
+    border: 1px solid #444C56; /* Slightly darker gray border */
+    padding: 30px; /* Increase padding */
+    margin: 20px; /* Increase margin for more space between boxes */
     text-align: center;
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 300px;
-    background-color: #2f3136; /* Discord lighter gray box background */
+    background-color: #2C2F33; /* Darker gray background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow */
+    border-radius: 10px; /* Rounded corners */
 }
 
 .box img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 10px;
-    border-radius: 4px;
+    margin-bottom: 20px; /* Increase margin */
+    border-radius: 2%; /* Rounded images */
 }
 
 h2 {
-    margin: 10px 0;
-    color: white; /* Light text color */
+    margin: 20px 0; /* Increase margin */
+    font-size: 24px; /* Bigger font size */
+    color: #fff; /* White header text */
 }
 
 p {
-    margin: 0;
-    flex-grow: 1;
-    color: #b9bbbe; /* Discord text color */
+    margin: 10px 0; /* Increase margin */
+    color: #B9BBBE; /* Light gray paragraph text */
 }
 
 .box-link {
     display: inline-block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color: #7289da;
+    margin-top: 20px; /* Increase margin */
+    padding: 10px 20px; /* Bigger button padding */
+    background-color: #7289DA; /* Discord blue */
     color: white;
     text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Bigger font size */
 }
 
-.box-link:hover {
-    background-color: #5a68a2;
-}
+/* Add additional styling as needed */

@@ -1,10 +1,10 @@
 /* Apply general styles to the body and headings */
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Discord font stack */
-    background-color: #36393f; /* Discord gray background */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #36393f;
     margin: 0;
     padding: 0;
-    color: white; /* Light text color */
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,40 +18,59 @@ body {
 
 .header {
     padding: 20px 0;
-    background-color: #7289da; /* Discord blue header */
+    background-color: #7289da;
     color: white;
+    font-size: 36px; /* Increase header font size */
 }
 
 /* Style the table */
 .table {
     width: 80%;
     border-collapse: collapse;
-    background-color: #2f3136; /* Discord lighter gray box background */
+    background-color: #2f3136;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 8px;
 }
 
 th, td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #444; /* Slightly darker line */
-    vertical-align: middle; /* Vertically center the content */
+    border-bottom: 1px solid #444;
+    vertical-align: middle;
+    font-size: 14px;
 }
 
 th {
-    background-color: #36393f; /* Match the background color */
+    background-color: #36393f;
 }
 
 tr:hover {
-    background-color: #40444b; /* Darker color on hover */
+    background-color: #40444b;
 }
 
 /* Additional styles for the "currently-playing" element */
 .currently-playing {
-    background-color: #40444b; /* Darker background */
+    background-color: #40444b;
     padding: 20px;
     text-align: center;
     font-weight: bold;
-    font-size: 24px;
-    border-radius: 8px; /* Rounded corners */
+    font-size: 32px; /* Increase font size */
+    color: white;
+    border-radius: 8px;
+}
+
+/* Back button styles */
+.back-button {
+    position: absolute;
+    top: 100px; /* Adjusted the position */
+    left: 250px;
+    padding: 30px;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #7289da; /* Change to Discord blue */
+    color: white;
+    text-decoration: none;
 }

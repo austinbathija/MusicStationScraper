@@ -29,8 +29,9 @@ station_urls = [
 previous_songs = {}
 
 clock = 0
-# Run for 1200 minutes
-while clock != 9600:
+
+# Run for 1200 minutes to get 1200 songs
+while clock != 72000:
     for station_name, url in station_urls:
         driver.get(url)
         song_elements = driver.find_elements(By.XPATH, "//div[@class='card-spotlight--now-playing--song']/span")

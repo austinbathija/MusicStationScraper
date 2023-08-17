@@ -37,14 +37,20 @@ def refresh_bpm_song_data():
 
     bpm_songs = [song for song in songs if song[1] == "BPM"]
 
+    now_playing = ""
     song_history_rows = ""
     if bpm_songs:
-        for song in reversed(bpm_songs):
+        latest_song = bpm_songs[-1]  # Get the latest song
+        now_playing = f"<div class='currently-playing'>{latest_song[2]} - {latest_song[3]}</div>"
+
+        # Exclude the latest song from the history
+        history_songs = bpm_songs[:-1]
+        for song in reversed(history_songs):
             song_history_rows += f"<tr><td>{song[2]}</td><td>{song[3]}</td><td>{song[4]}</td><td>{song[5]}</td></tr>"
     else:
         song_history_rows = "<tr><td colspan='3'>No song history available for BPM station.</td></tr>"
 
-    return song_history_rows
+    return now_playing + "<!--SPLIT-->" + song_history_rows
 
 
 @app.route('/refresh/chill')
@@ -53,14 +59,20 @@ def refresh_chill_song_data():
 
     chill_songs = [song for song in songs if song[1] == "Chill"]
 
+    now_playing = ""
     song_history_rows = ""
     if chill_songs:
-        for song in reversed(chill_songs):
+        latest_song = chill_songs[-1]  # Get the latest song
+        now_playing = f"<div class='currently-playing'>{latest_song[2]} - {latest_song[3]}</div>"
+
+        # Exclude the latest song from the history
+        history_songs = chill_songs[:-1]
+        for song in reversed(history_songs):
             song_history_rows += f"<tr><td>{song[2]}</td><td>{song[3]}</td><td>{song[4]}</td><td>{song[5]}</td></tr>"
     else:
         song_history_rows = "<tr><td colspan='3'>No song history available for Chill station.</td></tr>"
 
-    return song_history_rows
+    return now_playing + "<!--SPLIT-->" + song_history_rows
 
 @app.route('/refresh/armin')
 def refresh_armin_song_data():
@@ -68,14 +80,20 @@ def refresh_armin_song_data():
 
     armin_songs = [song for song in songs if song[1] == "A State of Armin"]
 
+    now_playing = ""
     song_history_rows = ""
     if armin_songs:
-        for song in reversed(armin_songs):
+        latest_song = armin_songs[-1]  # Get the latest song
+        now_playing = f"<div class='currently-playing'>{latest_song[2]} - {latest_song[3]}</div>"
+
+        # Exclude the latest song from the history
+        history_songs = armin_songs[:-1]
+        for song in reversed(history_songs):
             song_history_rows += f"<tr><td>{song[2]}</td><td>{song[3]}</td><td>{song[4]}</td><td>{song[5]}</td></tr>"
     else:
         song_history_rows = "<tr><td colspan='3'>No song history available for Armin station.</td></tr>"
 
-    return song_history_rows
+    return now_playing + "<!--SPLIT-->" + song_history_rows
 
 if __name__ == '__main__':
     app.run(debug=True)
