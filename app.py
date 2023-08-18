@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import sqlite3
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -49,9 +50,15 @@ def refresh_song_data(station_name):
 
         history_songs = station_songs[:-1]
         for song in reversed(history_songs):
+
+            input_string = song[5]
+            input_datetime = datetime.strptime(input_string, "%Y-%m-%d %H:%M:%S")
+
+            formatted_date = input_datetime.strftime("%I:%M %p, %m/%d/%Y")
+
             song_history_rows += (
                 f"<tr><td>{song[2]}</td><td>{song[3]}</td>"
-                f"<td>{song[4]}</td><td>{song[5]}</td></tr>"
+                f"<td>{song[4]}</td><td>{formatted_date}</td></tr>"
             )
     else:
         song_history_rows = (
