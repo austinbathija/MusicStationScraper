@@ -20,10 +20,12 @@
 </head>
 <body>
     <div class="back-button">
-        <a href="{{ url_for('landing_page') }}" class="back-link">Back</a>
+        <a href="{{ url_for('landing_page') }}" class="back-link">
+            <span class="back-arrow">←</span> Back
+        </a>    
     </div>
     <div id="song-history">
-        <h2>A State of Armin Song History</h2>
+        <h2>SiriusXM's A State of Armin Station</h2>
         <div class="section-heading">Now Playing</div>
         <div id="now-playing">
             <!-- Now Playing section will be populated dynamically -->

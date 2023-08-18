@@ -63,7 +63,7 @@ def refresh_chill_song_data():
     song_history_rows = ""
     if chill_songs:
         latest_song = chill_songs[-1]  # Get the latest song
-        now_playing = f"<div class='currently-playing'>{latest_song[2]} - {latest_song[3]}</div>"
+        now_playing = f"<div class='currently-playing'><span id='song-title'>{latest_song[2]}</span><br><span id='artist'>{latest_song[3]}</span></div>"
 
         # Exclude the latest song from the history
         history_songs = chill_songs[:-1]
@@ -73,6 +73,7 @@ def refresh_chill_song_data():
         song_history_rows = "<tr><td colspan='3'>No song history available for Chill station.</td></tr>"
 
     return now_playing + "<!--SPLIT-->" + song_history_rows
+
 
 @app.route('/refresh/armin')
 def refresh_armin_song_data():
