@@ -1,7 +1,7 @@
 /* Apply general styles to the body and headings */
 body {
     font-family: Arial, sans-serif;
-    background-color: #36393F; /* Discord gray */
+    background-color: #121212; /* Black background */
     margin: 0;
     padding: 0;
 }
@@ -9,10 +9,10 @@ body {
 /* Style the giant title */
 .giant-title {
     text-align: center;
-    font-size: 36px;
+    font-size: 48px; /* Larger font size */
     margin: 0; /* Reset margin to remove spacing */
-    padding: 10px 0;
-    color: #fff;
+    padding: 20px 0; /* Decreased padding from top and bottom */
+    color: white; /* Spotify green */
 }
 
 /* Center the boxes */
@@ -23,7 +23,7 @@ body {
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 30px;
+    padding: 10px 30px; /* Adjusted padding from top and bottom */
 }
 
 /* Center the boxes */
@@ -39,8 +39,8 @@ body {
 
 /* Style the boxes */
 .box {
-    border: 1px solid #444C56; /* Slightly darker gray border */
-    padding: 30px; /* Increase padding */
+    border: none; /* Remove border */
+    padding: 40px; /* Increase padding */
     margin: 20px; /* Increase margin for more space between boxes */
     text-align: center;
     flex: 1;
@@ -48,16 +48,16 @@ body {
     flex-direction: column;
     align-items: center;
     max-width: 300px;
-    background-color: #2C2F33; /* Darker gray background */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow */
-    border-radius: 10px; /* Rounded corners */
+    background-color: #1e1e1e; /* Darker black background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slight shadow */
+    border-radius: 15px; /* More rounded corners */
 }
 
 .box img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 20px; /* Increase margin */
-    border-radius: 2%; /* Rounded images */
+    margin-bottom: 30px; /* Increase margin */
+    border-radius: 15px; /* More rounded images */
 }
 
 h2 {
@@ -68,18 +68,19 @@ h2 {
 
 p {
     margin: 10px 0; /* Increase margin */
-    color: #B9BBBE; /* Light gray paragraph text */
+    color: #B3B3B3; /* Light gray paragraph text */
 }
 
 .box-link {
     display: inline-block;
-    margin-top: 20px; /* Increase margin */
-    padding: 10px 20px; /* Bigger button padding */
-    background-color: #7289DA; /* Discord blue */
+    margin-top: 30px; /* Increase margin */
+    padding: 15px 30px; /* Bigger button padding */
+    background-color: #1DB954; /* Spotify green */
     color: white;
     text-decoration: none;
-    border-radius: 10px; /* Rounded corners */
-    font-size: 18px; /* Bigger font size */
+    border-radius: 15px; /* More rounded corners */
+    font-size: 20px; /* Bigger font size */
+    font-weight: bolder;
 }
 
 /* Add additional styling as needed */
